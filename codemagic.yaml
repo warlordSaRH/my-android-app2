@@ -1,0 +1,12 @@
+workflows:
+  android-workflow:
+    name: Android Build
+    max_build_duration: 30
+    instance_type: mac_mini_m1
+    scripts:
+      - name: Unzip and Build Android APK
+        script: |
+          unzip -o mutajri_android_fixed.zip
+          cd mutajri_android_fixed
+          gradle assembleDebug    artifacts:
+      - "**/*.apk"
