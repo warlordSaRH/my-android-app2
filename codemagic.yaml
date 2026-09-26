@@ -8,5 +8,6 @@ workflows:
         script: |
           unzip -o mutajri_android_fixed.zip
           cd mutajri_android_fixed
-          gradle assembleDebug    artifacts:
+          gradle assembleDebug
+    artifacts:
       - "**/*.apk"
