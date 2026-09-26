@@ -7,6 +7,13 @@ workflows:
       - name: Unzip and Build Android APK
         script: |
           unzip -o mutajri_android_fixed.zip
+          
+          # Fix line 151
+          sed -i '' 's/edit.setOnClickListener(v->addProductDialog(i));/int finalI = i; edit.setOnClickListener(v->addProductDialog(finalI));/' app/src/main/java/com/example/mutajri/MainActivity.java
+          
+          # Fix line 189
+          sed -i '' 's/open.setOnClickListener(v->showCustomerDetails(i));/int finalI2 = i; open.setOnClickListener(v->showCustomerDetails(finalI2));/' app/src/main/java/com/example/mutajri/MainActivity.java
+          
           gradle assembleDebug
     artifacts:
       - "**/build/outputs/apk/**/*.apk"
