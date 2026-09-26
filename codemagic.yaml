@@ -7,7 +7,6 @@ workflows:
       - name: Unzip and Build Android APK
         script: |
           unzip -o mutajri_android_fixed.zip
-          cd mutajri_android_fixed
           gradle assembleDebug
     artifacts:
-      - "**/*.apk"
+      - "**/build/outputs/apk/**/*.apk"
